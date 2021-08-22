@@ -1,0 +1,14 @@
+이승완
+git pull->서버로부터 로컬폴더에 내려받기
+로컬 폴더에서 깃 서버로 파일 올리기
+
+git add . -> 종이들을 모아서 철을 하고 파일철에 끼우는 행위
+m은 설명(메세지)
+git commit -m"자신의 이름 텍스트파일 생성"-> 파일철에 라벨링
+git push ->최종 제출
+
+git init 로컬에 깃 폴더를 생성해줘 ->.git 파일이 자동으로 생성되기 때문에 git push 하면은 자동으로 원결과 연결됨
+git clone=>(복제) 내 래포에 안생김
+fork 
+
+setting -manage access
