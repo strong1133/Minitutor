@@ -7,3 +7,8 @@ m은 설명(메세지)
 git commit -m"자신의 이름 텍스트파일 생성"-> 파일철에 라벨링
 git push ->최종 제출
 
+git init 로컬에 깃 폴더를 생성해줘 ->.git 파일이 자동으로 생성되기 때문에 git push 하면은 자동으로 원결과 연결됨
+git clone=>(복제) 내 래포에 안생김
+fork 
+
+setting -manage access
