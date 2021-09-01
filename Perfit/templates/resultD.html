@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>당신의 향수 fit은?</title>
+    <link rel="stylesheet" href="../static/css/default.css">
+    <link rel="stylesheet" href="../static/css/font.css">
+    <style>
+        *{
+            height: auto;
+        }
+        body {
+            overflow: scroll;
+        }
+
+        .wrap {
+            padding: 10px;
+        }
+
+        .wrap_inner {
+            width: 40%;
+            height: auto;
+            margin: 0 auto;
+            background-color: #B7B6E2;
+            padding: 20px;
+            border-radius: 40px;
+        }
+
+        .result_title {
+            text-align: center;
+            height: auto;
+        }
+
+        .result_title img {
+            text-align: center;
+            width: 300px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        .result_img {
+            text-align: center;
+        }
+
+        .result_img img {
+            width: 250px;
+            height: 250px;
+        }
+
+        .info {
+            color:#ffffff;
+            text-align: center;
+        }
+
+        .describ {
+            width: 40%;
+            margin: 0 auto;
+        }
+
+        .sns_box {
+            width: 70%;
+            margin: 0 auto;
+
+        }
+        hr {
+            width: 80%;
+            color:#B7B6E2;
+            margin: 0 auto;
+        }
+        .sns_box li {
+            width: 80px;
+            height: 80px;
+
+            float: left;
+            margin-left: 7%;
+            background: #fffff
+        }
+        .sns_box li img {
+            width: 93%;
+            height: 95%;
+            background: #ffffff;
+            border: 1px solid #ffffff;
+             border-radius: 50%;
+            padding: 10px;
+        }
+        #btn_style {
+            width: 240px;
+            height: 30px;
+
+            text-align: center;
+            margin: 0 auto;
+            border-radius: 30px;
+            background-color: #7B00FF;
+            border: 2px double #ffffff;
+            color: #ffffff;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            letter-spacing: 3px;
+            padding: 10px;
+            display: block;
+        }
+
+         #btn_style:hover {
+            background-color: #FFF008;
+            color: #7B00FF;
+        }
+         .type-box {
+              width: 90px;
+            height: 23px;
+
+            text-align: center;
+            margin: 0 auto;
+            border-radius: 10px;
+            background-color: #353894;
+            border: 2px double #ffffff;
+            color: #ffffff;
+            font-size: 1em;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 2px;
+            padding: 5px;
+            display: block;
+        }
+
+         }
+        #reset {
+             text-align: center;
+             color: #C9C7FF;
+             display: block;
+         }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="wrap_inner">
+        <br><br>
+        <h2 class="result_title">
+            <img src="../static/img/edtitle.png" alt="">
+        </h2>
+        <br>
+        <!--        타입-->
+        <h2 class="type-box">D Type</h2>
+        <br>
+        <!--        결과이미지-->
+
+        <div class="result_img">
+            <img src="../static/img/f_latulipe.png" alt="">
+        </div>
+
+<!--        향수정보-->
+        <div class="info">
+            <p class="brand">BYREDO</p>
+            <h2 class="eng_name">LA TULIPE</h2>
+            <h4 class="kor_name">바이레도 라튤립</h4>
+            <br>
+            <div class="describ">
+              한 계절에 처음 맺는 꽃봉오리처럼 활기 넘치고 매력적이고 낙천적인 느낌의 향수
+            </div>
+            <br>
+            <div class="keyword">
+                #키워드 : 발랄한, 매력적인, 낙천ㅊ적인, 플로럴
+            </div>
+            <br>
+        </div>
+
+<!--        쇼핑하기-->
+        <a href="https://search.shopping.naver.com/catalog/15190145054?query=%EB%B0%94%EC%9D%B4%EB%A0%88%EB%8F%84%20%EB%9D%BC%ED%8A%A4%EB%A6%BD&NaPm=ct%3Dkszlcumw%7Cci%3Da420d16bc7a3be25de036b9f8e1e3a91fcf2a13f%7Ctr%3Dslsl%7Csn%3D95694%7Chk%3D32bd50fda3c571134042362dda13bc3848b93724"  target="_blank" class="shopping_btn" id="btn_style">네이버 쇼핑하기</a>
+        <br>
+<!--        다시하기-->
+        <a href="choice.html" class="back" id="btn_style">다시하기</a>
+        <br>
+        <a href="index.html" id="reset">처음으로</a>
+
+<!--        <hr>-->
+
+<!--        공유하기-->
+<!--        <h3 style="text-align: center; color:#ffffff">공유하기</h3>-->
+<!--        <br>-->
+<!--        <ul class="sns_box">-->
+<!--            <li class="sns_btn"><img src="https://lh3.googleusercontent.com/proxy/2MQPwO_owpeQmV6w6PstNK7Gy595MrN659i4RgufHnUiuAAy6Bbs7LLCw19e0dQfKprp1_-9hN28enLmJBq41XmMk-1xOAKD" alt="카카오톡"></li>-->
+<!--            <li class="sns_btn"><img src="data:image/png;base64,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" alt="페이스북"></li>-->
+<!--            <li class="sns_btn"><img src="https://mblogthumb-phinf.pstatic.net/MjAxODA5MjhfMTU4/MDAxNTM4MTIxMDM1NjEz.y_vypYsX9eNReCcIklqgl_UB2IKe_vVM_uYdSE-o2log.XClSScgwlU1PtY2b9iWQINVhHNrYReHaC9gYav-IWjgg.PNG.dnduf75/%EB%A1%9C%EA%B3%A0%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-%ED%8A%B8%EC%9C%84%ED%84%B0%EB%A1%9C%EA%B3%A0-png-3.png?type=w800" alt="트위터"></li>-->
+<!--            <li class="sns_btn"><img src="https://w7.pngwing.com/pngs/435/537/png-transparent-computer-icons-hyperlink-direct-link-others-miscellaneous-text-logo.png" alt="링크"></li>-->
+<!--        </ul>-->
+<!--        <br><br>-->
+    </div>
+</div>
+
+</body>
+</html>
