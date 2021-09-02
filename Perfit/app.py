@@ -12,6 +12,11 @@ def home():
     return render_template('index.html')
 
 
+@app.route('/choice', methods=['GET'])
+def choice():
+    return render_template('choice.html')
+
+
 # doc = {'question': 'answer'}
 # db.users.insert_one(doc)
 

@@ -1,0 +1,86 @@
+body {
+    background: linear-gradient(to right bottom, #353894, #3f3fa3, #4946b2, #534ec1, #5e55d1);
+    overflow: hidden;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.wrap {
+    width: 100%;
+    height: 100%;
+    margin-bottom: -10px;
+}
+
+.title {
+    padding: 20px;
+    margin: 60px auto -20px;
+    font-family: 'Nanum Brush Script', cursive;
+    text-align: center;
+    color: #ffffff;
+    font-size: 40px;
+
+    font-weight: normal;
+}
+
+.main_img {
+    text-align: center;
+    width: 600px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+#btn_style {
+    width: 240px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 30px;
+    background-color: #7B00FF;
+    border: 2px double #ffffff;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 3px;
+    padding: 10px;
+    line-height: 30px;
+    display: block;
+}
+
+#btn_style:hover {
+    background-color: #FFF008;
+    color: #7B00FF;
+    transition: all 300ms ease;
+}
+
+
+.back_image {
+    position: absolute;
+    top: 14%;
+    z-index: -89999;
+}
+
+.back_image img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-position: center;
+    background-size: contain;
+}
+
+.perfume_set {
+    width: 400px;
+    position: absolute;
+    opacity: 70%;
+    bottom: -35px;
+    right: 51%;
+    z-index: -22222;
+}
+
+.no-drag {
+    -ms-user-select: none;
+    /*-moz-user-select: -moz-none;*/
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
