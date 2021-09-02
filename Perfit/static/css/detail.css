@@ -20,7 +20,7 @@ body {
     top:18vw;
 }
 .body_wrap{
-    width: 500px;
+    width: auto;
     margin: auto;
     text-align: center;
 }
