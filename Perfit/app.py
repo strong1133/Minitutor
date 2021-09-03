@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 
 app = Flask(__name__)
@@ -17,8 +17,18 @@ def choice():
     return render_template('choice.html')
 
 
-# doc = {'question': 'answer'}
-# db.users.insert_one(doc)
+@app.route('/quiz', methods=['GET'])
+def getQuiz():
+    idx = request.args.get('idx')
+    if idx is not None:
+        data = findDB(idx)
+        return jsonify({'result': 'success', 'quiz': data})
+    return jsonify({'result': 'fail'})
+
+
+def findDB(idx):
+    data = list(db.qna.find({"idx": int(idx)}, {'_id': False}))
+    return data
 
 
 if __name__ == '__main__':

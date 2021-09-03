@@ -24,7 +24,7 @@ body {
     margin: auto;
     text-align: center;
 }
-.quiz{
+.quiz-content{
     background-color: rgba(182,250,200, 0.5);
     font-family: 'Do Hyeon', sans-serif;
     border-radius: 10px;
