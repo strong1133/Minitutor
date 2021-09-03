@@ -1,0 +1,58 @@
+body {
+    background: #654ea3; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #654ea3, #eaafc8); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #654ea3, #eaafc8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+.wrap{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.body_container{
+    width: 500px;
+    margin: 50px auto;
+    border-radius: 30px;
+     background-color: rgba(0,0,0,0.3);
+    padding: 20px;
+}
+
+.main_img_wrap{
+    text-align: center;
+
+
+}
+.main_img{
+    align-items: center;
+    width: 350px;
+    margin: auto;
+}
+.result_img{
+    text-align: center;
+    margin: 12px auto 10px;
+    width: 180px;
+    height:  250px;
+
+}
+.info  {
+    font-family: 'Do Hyeon', sans-serif;
+    color: white;
+    padding: 10px;
+}
+.eng_name{
+    color: #fff;
+  text-shadow: 0 0 1px #ddd, 0 0 5px #ddd, 0 0 5px #ddd, 0 0 5px #0fa,
+    0 0 20px #0fa, 0 0 10px #0fa, 0 0 102px #0fa, 0 0 20px #0fa;
+}
+.keyword{
+    margin-top: 10px;
+}
+.keyword>span{
+    background-color: sandybrown;
+    padding: 4px;
+    border-radius: 8px;
+    margin-right: 5px;
+}

@@ -4,7 +4,7 @@ client = MongoClient('localhost', 27017)
 db = client.perf_it
 
 db.qna.drop();
-db.ans.drop()
+db.ans.drop();
 
 doc = [
     {'idx': 1, 'quiz': "가장 좋아하는 계절은?", 'ans_01': "봄", 'ans_02': "여름", 'ans_03': "가을", 'ans_04': "겨울"},

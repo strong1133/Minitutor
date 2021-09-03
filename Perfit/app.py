@@ -17,6 +17,14 @@ def choice():
     return render_template('choice.html')
 
 
+@app.route('/result', methods=['GET'])
+def result():
+    return render_template('result.html')
+
+
+# =========================================
+
+
 @app.route('/quiz', methods=['GET'])
 def getQuiz():
     idx = request.args.get('idx')
@@ -28,6 +36,20 @@ def getQuiz():
 
 def findDB(idx):
     data = list(db.qna.find({"idx": int(idx)}, {'_id': False}))
+    return data
+
+
+@app.route('/ans', methods=['GET'])
+def getAns():
+    type = request.args.get('type')
+    if type is not None:
+        data = findAnsDB(type)
+        return jsonify({'result': 'success', 'ans': data})
+    return jsonify({'result': 'fail'})
+
+
+def findAnsDB(type):
+    data = list(db.ans.find({"type": type}, {'_id': False}))
     return data
 
 
