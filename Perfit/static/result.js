@@ -32,7 +32,6 @@ function manyKeyword(type) {
             return;
         }
     }
-
     return maxChar.toUpperCase();
 }
 
