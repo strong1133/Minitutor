@@ -1,7 +1,8 @@
 // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-var infowindow;
-var mapContainer, mapOption
-var map, ps
+let infowindow;
+let mapContainer, mapOption
+let map, ps
+
 $(document).ready(function () {
 
     infowindow = new kakao.maps.InfoWindow({zIndex: 1});
@@ -19,7 +20,7 @@ $(document).ready(function () {
     ps = new kakao.maps.services.Places();
 
     // 키워드로 장소를 검색합니다
-    ps.keywordSearch('서울 맛집', placesSearchCB);
+    ps.keywordSearch('경기 맛집', placesSearchCB);
 
 })
 
@@ -27,11 +28,14 @@ $(document).ready(function () {
 function placesSearchCB(data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
 
+        $(".contents-body").empty();
+
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
         var bounds = new kakao.maps.LatLngBounds();
 
         for (var i = 0; i < data.length; i++) {
+            makeCard(data[i])
             displayMarker(data[i]);
             bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
         }
@@ -43,7 +47,7 @@ function placesSearchCB(data, status, pagination) {
 
 // 지도에 마커를 표시하는 함수입니다
 function displayMarker(place) {
-
+    console.log(place)
     // 마커를 생성하고 지도에 표시합니다
     var marker = new kakao.maps.Marker({
         map: map,
@@ -57,3 +61,37 @@ function displayMarker(place) {
         infowindow.open(map, marker);
     });
 }
+
+function search(){
+    let sch = $('#search').val();
+    if (!sch){
+        alert("검색 내용을 입력하세요!")
+        return
+    }
+    console.log(sch)
+    ps.keywordSearch(sch, placesSearchCB);
+}
+
+function makeCard(data){
+
+    let tempHtml = `
+        <div class="card" onclick="location.href='${data.place_url}'">
+          <div class="card_header">
+
+          </div>
+          <div class="card_body">
+            <div class="tilte">
+              <h2>${data["place_name"]}</h2>
+            </div>
+            <div class="desc">
+              <p>
+                전화번호 : ${data["phone"]}
+                주소 : ${data["road_address_name"]}
+              </p>
+            </div>
+          </div>
+        </div>
+    `
+    $(".contents-body").append(tempHtml)
+}
+

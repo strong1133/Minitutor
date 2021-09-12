@@ -10,6 +10,7 @@ function getQuiz(idx) {
     $.ajax({
         url: `/quiz?idx=${idx}`,
         method: 'GET',
+
         success: function (response) {
             $('.quiz-content').empty();
             let data = response["quiz"][0];
@@ -17,6 +18,7 @@ function getQuiz(idx) {
             console.log(data);
 
             $('.quiz-content').append(`<h2>${data["quiz"]}</h2>`)
+
             $('#btn_type_A').text(`A. ${data["ans_01"]}`)
             $('#btn_type_B').text(`B. ${data["ans_02"]}`)
             $('#btn_type_C').text(`C. ${data["ans_03"]}`)
@@ -27,13 +29,17 @@ function getQuiz(idx) {
 }
 
 function btn_click(x) {
-    console.log("%s 선택.", x)
+    console.log("%s 선택.", x) //A, B, C, D
+
     ans += x;
+
     idx += 1;
+
     if (idx > 4) {
         alert("최종 응답 유형은 " + ans)
         location.href=`/result?type=${ans}`;
         return;
     }
+
     getQuiz(idx, x)
 }
