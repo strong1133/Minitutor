@@ -17,7 +17,6 @@ $(document).ready(function () {
 
     // 지도를 생성합니다
     map = new kakao.maps.Map(mapContainer, mapOption);
-
     // 장소 검색 객체를 생성합니다
     ps = new kakao.maps.services.Places();
 
@@ -39,8 +38,11 @@ function placesSearchCB(data, status, pagination) {
         var bounds = new kakao.maps.LatLngBounds();
 
         for (var i = 0; i < data.length; i++) {
+
             makeCard(data[i])
+
             displayMarker(data[i]);
+
             bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
         }
 
@@ -49,7 +51,8 @@ function placesSearchCB(data, status, pagination) {
     }
 }
 
-// 지도에 마커를 표시하는 함수입니다
+
+// 지도에 마커를 표시하는 함수
 function displayMarker(place) {
     console.log(place)
     // 마커를 생성하고 지도에 표시합니다
@@ -66,6 +69,8 @@ function displayMarker(place) {
     });
 }
 
+
+// 검색기능 을 넣는다면 쓰는 함수
 function search() {
     let sch = $('#search').val();
     if (!sch) {
@@ -76,6 +81,8 @@ function search() {
     ps.keywordSearch(sch, placesSearchCB);
 }
 
+
+// HTML 카드를 그려주는 함수
 function makeCard(data) {
 
     let tempHtml = `
@@ -99,17 +106,16 @@ function makeCard(data) {
     $(".contents-body").append(tempHtml)
 }
 
+// 서버로 부터 DB에 저장 된 값을 내려 받는 함수
 function getFoodInfo() {
     $.ajax({
         type: "GET",
         url: "/food",
         success: function (response) {
             let foods = response['data']
+
             placesSearchCB(foods,'OK')
-            for(food of foods){
-                // console.log(food);
-                displayMarker(food)
-            }
+
         }
     })
 }

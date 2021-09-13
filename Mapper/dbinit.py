@@ -10,13 +10,10 @@ headers = {
 chrome_driver_dir = './chromedriver'
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('headless')
-
 driver = webdriver.Chrome(chrome_driver_dir, chrome_options=chrome_options)
 
 client = pymongo.MongoClient('localhost', 27017)
 db = client.mapEx
-
-
 
 
 def getImg(url):
@@ -53,14 +50,16 @@ def getMapInfo(region, page):
 
     places = requests.get(url, params=params, headers=headers).json()['documents']
     total = requests.get(url, params=params, headers=headers).json()['meta']["total_count"]
-    print(places)
+    # print(places)
     for place in places:
         baseurl = place["place_url"],
+
         img_url = getImg(baseurl[0])
 
         doc = {
             "id": place["id"],
             "name": place["place_name"],
+            "category": place["category_group_name"],
             "address": place["road_address_name"],
             "url": place["place_url"],
             "img_url": img_url,
@@ -69,7 +68,6 @@ def getMapInfo(region, page):
             "y": place["y"]
         }
         print(doc)
-        db.mapInfo.insert_one(doc)
 
 
 for i in range(1, 6):

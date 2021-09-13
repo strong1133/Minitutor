@@ -14,8 +14,10 @@ def home():
 
 @app.route('/food', methods=['GET'])
 def food():
-    data = list(db.mapInfo.find({}, {'_id': False}))
+    data = list(db.mapInfo.find({ }, {'_id': False}))
     return jsonify({'msg': 'success', 'data': data})
+
+
 
 
 if __name__ == '__main__':
