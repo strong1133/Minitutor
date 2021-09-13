@@ -5,12 +5,14 @@ let map, ps
 
 $(document).ready(function () {
 
+    getFoodInfo()
+
     infowindow = new kakao.maps.InfoWindow({zIndex: 1});
 
     mapContainer = document.getElementById('map') // 지도를 표시할 div
     mapOption = {
         center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-        level: 2 // 지도의 확대 레벨
+        level: 4 // 지도의 확대 레벨
     };
 
     // 지도를 생성합니다
@@ -20,12 +22,14 @@ $(document).ready(function () {
     ps = new kakao.maps.services.Places();
 
     // 키워드로 장소를 검색합니다
-    ps.keywordSearch('경기 맛집', placesSearchCB);
+    // ps.keywordSearch('경기 맛집', placesSearchCB);
 
 })
 
+
 // 키워드 검색 완료 시 호출되는 콜백함수 입니다
 function placesSearchCB(data, status, pagination) {
+    console.log(status)
     if (status === kakao.maps.services.Status.OK) {
 
         $(".contents-body").empty();
@@ -57,14 +61,14 @@ function displayMarker(place) {
     // 마커에 클릭이벤트를 등록합니다
     kakao.maps.event.addListener(marker, 'click', function () {
         // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.name + '</div>');
         infowindow.open(map, marker);
     });
 }
 
-function search(){
+function search() {
     let sch = $('#search').val();
-    if (!sch){
+    if (!sch) {
         alert("검색 내용을 입력하세요!")
         return
     }
@@ -72,21 +76,21 @@ function search(){
     ps.keywordSearch(sch, placesSearchCB);
 }
 
-function makeCard(data){
+function makeCard(data) {
 
     let tempHtml = `
-        <div class="card" onclick="location.href='${data.place_url}'">
+        <div class="card" onclick="location.href='${data.url}'">
           <div class="card_header">
-
+            <img class="img" src="${data.img_url}" alt="">
           </div>
           <div class="card_body">
             <div class="tilte">
-              <h2>${data["place_name"]}</h2>
+              <h2>${data.name}</h2>
             </div>
             <div class="desc">
               <p>
-                전화번호 : ${data["phone"]}
-                주소 : ${data["road_address_name"]}
+                전화번호 : ${data.phone} <br><br>
+                주소 : ${data.address}
               </p>
             </div>
           </div>
@@ -95,3 +99,17 @@ function makeCard(data){
     $(".contents-body").append(tempHtml)
 }
 
+function getFoodInfo() {
+    $.ajax({
+        type: "GET",
+        url: "/food",
+        success: function (response) {
+            let foods = response['data']
+            placesSearchCB(foods,'OK')
+            for(food of foods){
+                // console.log(food);
+                displayMarker(food)
+            }
+        }
+    })
+}
